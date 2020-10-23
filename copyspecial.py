@@ -54,7 +54,6 @@ def copy_to(path_list, dest_dir):
 
 def zip_to(path_list, dest_zip):
     """Given a list of paths, zip those files into given directory"""
-
     cmd = ['zip', '-j', dest_zip]
     cmd.extend(path_list)
     print(" ".join(cmd))
@@ -67,22 +66,10 @@ def main(args):
     parser = argparse.ArgumentParser()
     parser.add_argument('--todir', help='dest dir for special files')
     parser.add_argument('--tozip', help='dest zipfile for special files')
-    # TODO: add one more argument definition to parse the 'from_dir' argument
     parser.add_argument('from_dir', help='directory grab special files from')
     ns = parser.parse_args(args)
 
-    # TODO: you must write your own code to get the command line args.
-    # Read the docs and examples for the argparse module about how to do this.
-
-    # Parsing command line arguments is a must-have skill.
-    # This is input data validation. If something is wrong (or missing) with
-    # any required args, the general rule is to print a usage message and
-    # exit(1).
-
-    # Your code here: Invoke (call) your functions
-
     path_list = get_special_paths(ns.from_dir)
-
     for path in path_list:
         print(path)
 
